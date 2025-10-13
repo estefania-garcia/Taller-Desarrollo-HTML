@@ -1,0 +1,705 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root
+{
+    --black: #1f1f1f;
+    --white: #fff;
+    --blue: #28b4ff;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /*background: url(img/fondo.jpg);*/
+    background: #131313;
+}
+
+section
+{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 15px;
+}
+
+.container
+{
+    position: relative;
+    width: 100%;
+    background: #2b2b2b;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05);
+    border-top-left-radius: 20px;
+    align-items: center;
+}
+
+.navigation
+{
+    position: fixed;
+    width: 260px;
+    height: 100%;
+    background: #2b2b2b;
+    transition: 0.5s;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+}
+
+.navigation.active
+{
+    width: 75px;
+}
+
+.navigation ul
+{
+    position: absolute;
+    top: 0;
+    left: 5px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.navigation ul li
+{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered
+{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.navigation ul li:nth-child(1)
+{
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a
+{
+    color: rgb(78, 226, 205);
+}
+
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon
+{
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title
+{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/* Navbar*/
+.main
+{
+    position: absolute;
+    width: calc(100% - 260px);
+    left: 260px;
+    min-height: 100%;
+    background: #2b2b2b;
+    transition: 0.5s;
+    border-top-right-radius: 20px;
+    overflow-y: auto;
+    overflow: hidden;
+}
+
+.main.active
+{
+    width: calc(100% - 75px);
+    left: 75px;
+}
+
+.topbar
+{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background: #2b2b2b;
+    border-top-right-radius: 20px;
+    z-index: 100;
+}
+
+.toggle
+{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.toggle:hover
+{
+    color: rgb(78, 226, 205);
+}
+
+.search
+{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label
+{
+    position: relative;
+    width: 100%;
+    color: white;
+}
+
+.search label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    outline: none;
+    border: 1.5px solid rgba(255, 255, 255, 0);
+    background: rgba(0, 0, 0, 0.318);;
+    color: white;
+}
+
+.search label input::placeholder {
+    color: white;
+}
+
+.search label input:hover::placeholder {
+    color: rgb(78, 226, 205);
+}
+
+.search label ion-icon
+{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+
+.usuario
+{
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.usuario img
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cartas Hoja Principal*/
+.tabs
+{
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.tabs input
+{
+    visibility: hidden;
+    display: none;
+}
+
+.buttons
+{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10000000;
+}
+
+.buttons label
+{
+    width: 20px;
+    height: 20px;
+    background: white;
+    opacity: 0.5;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.tabs input:nth-child(1):checked ~ .buttons
+label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .buttons
+label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .buttons
+label:nth-child(3)
+{
+    opacity: 1;
+    width: 40px;
+}
+
+.content
+{
+    position: relative;
+    height: auto;
+    width: 300vw;
+    display: flex;
+    transition: 0.5s;
+}
+
+.content .box
+{
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 700px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    user-select: none;
+}
+
+.tabs input:nth-child(1):checked ~ .content
+{
+    left: 0;
+}
+
+.tabs input:nth-child(2):checked ~ .content
+{
+    left: -100vw;
+}
+
+.tabs input:nth-child(3):checked ~ .content
+{
+    left: -200vw;
+}
+
+.card
+{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 60%;
+    background: #1e0ab438;
+    overflow: hidden;
+    box-shadow: 0 15px 15px rgba(255, 255, 255, 0.145);
+}
+
+.card .poster
+{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card:hover .poster::before
+{
+    bottom: 0;
+}
+
+.card .poster img
+{
+    width: 1092px;
+    transition: 0.5s;
+}
+
+.main.active .card .poster img
+{
+    width: 1277px;
+    transition: 0.5s;
+}
+
+.card:hover .poster img
+{
+    filter: blur(5px);
+    transform: translateY(-50px);
+}
+
+.details
+{
+    position: absolute;
+    padding: 20px;
+    width: 50%;
+    height: 70%;
+    bottom: -163px;
+    left: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.card:hover .details
+{
+    bottom: 0;
+}
+
+.details h2
+{
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.details h2 span
+{
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.rating
+{
+    position: relative;
+    padding: 5px 0;
+}
+
+.rating ion-icon
+{
+    color: #fff;
+    margin-right: 2px;
+    font-size: 16px;
+}
+
+.tags
+{
+    position: relative;
+    margin-top: 5px;
+}
+
+.tags span
+{
+    padding: 2px 5px;
+    margin-right: 2px;
+    color: white;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.tags span
+{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: white;
+}
+
+.info
+{
+    color: white;
+}
+
+.info p
+{
+    margin: 15px 0 10px;
+}
+
+.info button
+{
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 35px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    font-weight: 600;
+    border: none;
+    border-radius: 40px;
+    transition: 0.5s;
+}
+
+.info button:hover
+{
+    letter-spacing: 0.2em;
+    background: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.678);
+}
+
+/* Cartas de series*/
+.container-cards
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: -350px;
+    /*display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;*/
+}
+
+.container-cards .box-cards
+{
+    position: relative;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+    transition: 0.5s;
+}
+
+.container-cards .box-cards::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transform-origin: left center;
+    transform: skewX(10deg);
+    transition: 0.5s;
+}
+
+.container-cards .box-cards::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transform: skewX(10deg);
+    transform-origin: left center;
+    transition: 0.5s;
+    filter: blur(100px);
+}
+
+.container-cards .box-cards:hover::before,
+.container-cards .box-cards:hover::after
+{
+    transform: skewX(0deg);
+    left: 10px;
+    width: 100%;
+}
+
+.container-cards .box-cards:nth-child(1)::before,
+.container-cards .box-cards:nth-child(1)::after
+{
+    background: url(img/card1.jpg);
+    background-size: cover;
+}
+
+.container-cards .box-cards:nth-child(2)::before,
+.container-cards .box-cards:nth-child(2)::after
+{
+    background: url(img/card2.jpg);
+    background-size: cover;
+}
+
+.container-cards .box-cards:nth-child(3)::before,
+.container-cards .box-cards:nth-child(3)::after
+{
+    background: url(img/card3.jpg);
+    background-size: cover;
+}
+
+.container-cards .box-cards:nth-child(4)::before,
+.container-cards .box-cards:nth-child(4)::after
+{
+    background: url(img/card4.jpg);
+    background-size: cover;
+}
+
+.container-cards .box-cards span
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.container-cards .box-cards span::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.container-cards .box-cards:hover span::before
+{
+    top: -20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+}
+
+.container-cards .box-cards span::after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation-delay: -1s;
+}
+
+.container-cards .box-cards:hover span::after
+{
+    bottom: -20px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+}
+
+@keyframes animate
+{
+    0%, 100%
+    {
+        transform: translateY(5px);
+    }
+    50%
+    {
+        transform: translateY(-5px);
+    }
+}
+
+.container-cards .box-cards .contenido
+{
+    position: relative;
+    left: 0;
+    padding: 20px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+    transform: 0.5s;
+    color: white;
+}
+
+.container-cards .box-cards:hover .contenido
+{
+    left: 10px;
+    padding: 50px 40px;
+    backdrop-filter: blur(5px);
+    height: 100%;
+}
+
+.container-cards .box-cards .contenido h3
+{
+    font-size: 1em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.container-cards .box-cards .contenido p
+{
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+
+.container-cards .box-cards .contenido a
+{
+    display: inline-block;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 5px;
+    transition: 0.5s;
+}
+
+.container-cards .box-cards .contenido a:hover
+{
+    letter-spacing: 0.1em;
+    background: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.678);
+}
