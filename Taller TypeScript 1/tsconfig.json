@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ESNext", // Usa ESNext para módulos modernos
+        "outDir": "./",    // Compila a la misma carpeta
+        "rootDir": "./",   // Carpeta raíz
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+        // Elimina "allowImportingTsExtensions" ya que no es necesario
+    },
+    "include": ["*.ts"],
+    "exclude": ["node_modules"]
+}
